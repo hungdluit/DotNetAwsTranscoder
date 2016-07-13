@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Amazon Elastic Transcoder";
+}
+
+<div data-bind="with: addJobViewModel">
+  @Html.Partial("_CreateJob")
+</div>
+
+<hr />
+
+<div class="panel panel-info" data-bind="with: jobListViewModel">
+  <div class="panel-heading">Jobs</div>
+
+  @Html.Partial("_JobsList")
+</div>
+
+@section scripts {
+  <script>
+    $(function() {
+
+      // create the jobListVm used for this page
+      var jobListVm = new app.JobListViewModel();
+      ko.applyBindings(jobListVm);
+
+      // load job data
+      jobListVm.jobListViewModel.getJobs();
+
+      // load job presets
+      jobListVm.addJobViewModel.getPresets();
+
+    });
+  </script>
+}

@@ -1,0 +1,17 @@
+﻿<div class="modal fade" data-bind="ToggleModal: ShowModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-bind="click : close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" data-bind="text: ModalTitle"></h4>
+      </div>
+      <div class="modal-body" data-bind="text: ModalMessage">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bind="visible: ConfirmCallBack, click : confirm">Ok</button>
+        <button type="button" class="btn btn-default" data-bind="click : close">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

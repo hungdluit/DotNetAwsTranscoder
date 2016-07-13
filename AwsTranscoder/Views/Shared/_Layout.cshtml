@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>@ViewBag.Title</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+</head>
+  <body>
+
+    <div class="container body-content">
+      <div class="well header">
+        <div class="row">
+          <div class="col-sm-2">
+            <span class="glyphicon glyphicon-film" aria-hidden="true"></span></div>
+          <div class="col-sm-10">
+            <h1>Video Transcoder</h1>
+            <p class="lead">
+              Transcode any video from one
+              format to another with options for video rotation and thumbnail creation.
+              A maximum of <strong>@ViewBag.JobKeepLimit</strong> jobs are allowed at once.
+              Older jobs will be automatically removed once that limit is reached.
+            </p>
+          </div>
+        </div>
+      </div>
+      @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
+
+    @RenderSection("scripts", false)
+  </body>
+</html>

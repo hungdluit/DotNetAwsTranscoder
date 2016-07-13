@@ -1,0 +1,32 @@
+﻿<table class="table jobs-table">
+  <thead>
+  <tr>
+    <th>Status</th>
+    <th>Video</th>
+    <th>Preset</th>
+    <th>Thumbs</th>
+    <th>Rotate</th>
+    <th>Submitted</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody data-bind="foreach: jobs">
+  <tr>
+    <td><span class="glyphicon" data-bind="css: statusClass, attr: { title: Status }" aria-hidden="true"></span></td>
+    <td data-bind="text: FileName"></td>
+    <td data-bind="text: PresetName"></td>
+    <td data-bind="text: Thumbnails"></td>
+    <td data-bind="text: Rotate"></td>
+    <td data-bind="text: SubmittedDate"></td>
+    <td>
+      <a data-bind="attr: { href: DownloadLink }, visible: IsCompleted" class="btn btn-success btn-xs">Download</a>
+      <button class="btn btn-danger btn-xs" data-bind="visible: IsSubmitted, click: $parent.cancelJob">Cancel</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div data-bind="with: modalViewModel">
+  @Html.Partial("_Modal")
+</div>
